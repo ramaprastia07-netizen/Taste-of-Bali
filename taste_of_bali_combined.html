@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taste of Bali | Cooking Class</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: transparent !important;
+  font-family: 'DM Sans', Arial, sans-serif;
+}
+
+.hero-area .hero {
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: transparent !important;
+  color: #203c34;
+  overflow: hidden;
+}
+
+.hero-area .hero-content {
+  position: relative;
+  width: min(1120px, 90%);
+  margin: auto;
+  padding: 70px 0;
+}
+
+.hero-area .hero-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  color: #173f35;
+  margin-bottom: 15px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+  color: #c97962;
+  margin: 0 0 12px;
+}
+
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(36px, 5vw, 61px);
+  line-height: 1.08;
+  font-weight: 500;
+  max-width: 540px;
+  margin: 0 0 18px;
+  color: #173f35;
+}
+
+.hero-area .hero-description {
+  max-width: 480px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #45574f;
+  margin: 0 0 24px;
+}
+
+.hero-area .actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid #c97962;
+  background: #c97962;
+  color: #ffffff;
+  padding: 12px 18px;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+  text-align: center;
+  transition: .2s;
+}
+
+.btn:hover {
+  filter: brightness(.92);
+  transform: translateY(-1px);
+}
+
+.hero-area .btn.outline {
+  background: transparent;
+  border-color: #173f35;
+  color: #173f35;
+}
+
+.hero-area .btn.outline:hover {
+  background: rgba(23, 63, 53, 0.07);
+}
+
+@media (max-width: 600px) {
+  .hero-area .hero {
+    min-height: 400px;
+  }
+
+  .hero-area .hero-content {
+    padding: 50px 0;
+  }
+
+  h1 {
+    font-size: clamp(35px, 9vw, 48px);
+  }
+
+  .hero-area .hero-description {
+    font-size: 12px;
+  }
+
+  .hero-area .actions {
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 12px 14px;
+  }
+}
+
+
+/* ===== NEXT SECTION STYLES ===== */
+
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+:root {
+  --green: #173f35;
+  --sage: #879e94;
+  --cream: #ffffff;
+  --coral: #c97962;
+  --ink: #000000;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', Arial, sans-serif;
+  color: var(--ink);
+  background: #ffffff;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a { text-decoration: none; }
+
+.wrap {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+.btn {
+  display: inline-block;
+  border: 0;
+  background: var(--coral);
+  color: #ffffff;
+  padding: 11px 17px;
+  font-size: 11px;
+  cursor: pointer;
+  text-align: center;
+  transition: .2s;
+}
+
+.btn:hover {
+  filter: brightness(.92);
+  transform: translateY(-1px);
+}
+
+.btn.dark {
+  background: var(--green);
+  color: #ffffff;
+}
+
+section {
+  padding: 62px 0;
+  background: #ffffff;
+  color: #000000;
+}
+
+#about { padding-top: 40px; }
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.intro-photo {
+  height: 300px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+  margin-bottom: 12px;
+  color: #000000;
+}
+
+h1, h2, h3, .dish-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  color: #000000;
+}
+
+h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+h3 {
+  font-size: 19px;
+  margin: 0 0 7px;
+}
+
+.lead {
+  font-size: 13px;
+  color: #000000;
+}
+
+.small-note {
+  font-size: 11px;
+  color: #000000;
+  margin-top: 18px;
+}
+
+.small-note span {
+  color: var(--coral);
+  margin-right: 8px;
+}
+
+.cream {
+  background: #ffffff;
+  color: #000000;
+}
+
+.section-head {
+  text-align: center;
+  margin: 0 auto 32px;
+  max-width: 600px;
+}
+
+.section-head p {
+  font-size: 12px;
+  color: #000000;
+  margin-top: 8px;
+}
+
+.classes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.class-card {
+  background: #ffffff;
+  color: #000000;
+  padding-bottom: 18px;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 3px 14px #00000010;
+}
+
+.class-card img { height: 185px; }
+
+.card-body { padding: 15px 17px 0; }
+
+.card-body h3 { color: #000000; }
+
+.card-body p {
+  font-size: 11px;
+  color: #000000;
+  min-height: 48px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  margin-bottom: 14px;
+  gap: 10px;
+  color: #000000;
+}
+
+.price {
+  color: var(--coral);
+  font-weight: 600;
+}
+
+.duration { color: #000000; }
+
+.card-body .btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+.included {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.include-item {
+  background: #ffffff;
+  color: #000000;
+  padding: 18px;
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+}
+
+.include-icon {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  display: grid;
+  place-items: center;
+  color: #000000;
+}
+
+.include-item strong {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000000;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.include-item p {
+  font-size: 11px;
+  color: #000000;
+  margin: 0;
+}
+
+/* UPDATED SIGNATURE DISHES */
+.dishes-section {
+  width: 100%;
+  padding: 48px 5.4%;
+  background: #f7f2e8;
+  color: #183f35;
+}
+
+.dishes-heading {
+  text-align: center;
+  margin: 0 auto 32px;
+  max-width: 600px;
+}
+
+.dishes-heading h2 {
+  margin: 0 0 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.2;
+  font-weight: 600;
+  color: #183f35;
+}
+
+.dishes-heading p {
+  margin: 0;
+  font-size: 12px;
+  color: #4f4a42;
+}
+
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.dish-card {
+  background: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  min-width: 0;
+  box-shadow: 0 3px 14px #0000000a;
+}
+
+.dish-card img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.dish-info {
+  padding: 13px 15px 15px;
+  min-height: 90px;
+}
+
+.dish-info h3 {
+  margin: 0 0 5px;
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: #183f35;
+}
+
+.dish-info p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #514d46;
+}
+
+.offers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.offer {
+  background: #ffffff;
+  color: #000000;
+  padding: 24px 26px;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+}
+
+.offer h3 {
+  font-size: 21px;
+  color: #000000;
+}
+
+.offer p {
+  font-size: 12px;
+  color: #000000;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery img {
+  height: 210px;
+  border-radius: 3px;
+  transition: transform .3s;
+}
+
+.gallery img:hover { transform: scale(1.015); }
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review {
+  background: #ffffff;
+  color: #000000;
+  padding: 22px;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+}
+
+.stars {
+  color: var(--coral);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.review p {
+  font-size: 12px;
+  color: #000000;
+}
+
+.review strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.review small {
+  display: block;
+  font-size: 10px;
+  color: #000000;
+}
+
+.cta {
+  background: #ffffff;
+  color: #000000;
+  text-align: center;
+  padding: 65px 20px;
+}
+
+.cta h2 {
+  font-size: clamp(29px, 4vw, 42px);
+  color: #000000;
+}
+
+.cta p {
+  font-size: 12px;
+  color: #000000;
+  margin: 12px 0 22px;
+}
+
+/* TABLET */
+@media (max-width: 760px) {
+  section { padding: 48px 0; }
+
+  #about { padding-top: 30px; }
+
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .intro-photo { height: 250px; }
+
+  .classes,
+  .gallery,
+  .reviews,
+  .included {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dishes-section { padding: 40px 4%; }
+
+  .dishes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .class-card img { height: 155px; }
+
+  .dish-card img { height: 155px; }
+
+  .dish-info { min-height: 90px; }
+
+  .dishes-heading h2 { font-size: 26px; }
+
+  .gallery img { height: 170px; }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .classes,
+  .gallery,
+  .reviews,
+  .included,
+  .offers {
+    grid-template-columns: 1fr;
+  }
+
+  .dishes-section { padding: 35px 5%; }
+
+  .dishes-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .class-card img { height: 220px; }
+
+  .dish-card img { height: 210px; }
+
+  .dish-info {
+    padding: 14px 15px 16px;
+    min-height: auto;
+  }
+
+  .dish-info h3 { font-size: 18px; }
+
+  .dish-info p { font-size: 12px; }
+
+  .gallery img { height: 230px; }
+
+  .section-head { margin-bottom: 25px; }
+}
+
+
+/* ===== NEXT SECTION STYLES ===== */
+
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: transparent;
+}
+
+footer {
+  width: 100%;
+  background: #173f35;
+  color: #e9eee9;
+  padding: 45px 0 22px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-wrap {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.3fr;
+  gap: 35px;
+  padding-bottom: 30px;
+}
+
+.brand {
+  display: inline-block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+footer p,
+footer a {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #c6d4cc;
+}
+
+footer p {
+  margin: 0 0 10px;
+  overflow-wrap: anywhere;
+}
+
+footer h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 5px 0 14px;
+  color: #ffffff;
+}
+
+.footer-links {
+  display: grid;
+  gap: 9px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.footer-links a:hover {
+  color: #c97962;
+}
+
+.copyright {
+  border-top: 1px solid #ffffff25;
+  padding-top: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-size: 11px;
+  color: #b7c9bf;
+}
+
+.copyright a {
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.copyright a:hover {
+  color: #c97962;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+  }
+
+  .footer-wrap {
+    width: 88%;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  footer {
+    padding: 35px 0 20px;
+  }
+
+  .footer-wrap {
+    width: 88%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-bottom: 25px;
+  }
+
+  .brand {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+
+  footer p,
+  footer a {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  footer h4 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .footer-links {
+    gap: 8px;
+  }
+
+  .copyright {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 10px;
+    line-height: 1.8;
+  }
+
+  .copyright a {
+    font-size: 10px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 360px) {
+  .footer-wrap {
+    width: 90%;
+  }
+
+  .brand {
+    font-size: 19px;
+  }
+
+  footer h4 {
+    font-size: 16px;
+  }
+
+  footer p,
+  footer a {
+    font-size: 11px;
+  }
+}
+
+
+/* Hero-specific heading and button safeguards */
+.hero-area h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(36px, 5vw, 61px);
+  line-height: 1.08;
+  font-weight: 500;
+  max-width: 540px;
+  margin: 0 0 18px;
+  color: #173f35;
+}
+.hero-area .btn {
+  border: 1px solid #c97962;
+  background: #c97962;
+  color: #fff;
+  padding: 12px 18px;
+  font-size: 11px;
+}
+.hero-area .btn.outline {
+  background: transparent;
+  border-color: #173f35;
+  color: #173f35;
+}
+@media (max-width: 600px) {
+  .hero-area h1 { font-size: clamp(35px, 9vw, 48px); }
+  .hero-area .btn { padding: 12px 14px; }
+}
+</style>
+</head>
+<body>
+<div class="hero-area">
+
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="hero-brand">❀ Taste of Bali</div>
+<p class="eyebrow">A Culinary Journey in Ubud</p>
+<h1>Cook. Taste.<br/>Experience Bali.</h1>
+<p class="hero-description">
+      Discover the art of Balinese cuisine in the heart of Ubud.
+      Learn local recipes, explore fresh ingredients, and create
+      authentic dishes with our welcoming local chefs.
+    </p>
+<div class="actions">
+<!-- BOOKING PAGE -->
+<a class="btn" href="https://sites.google.com/view/tasteofbali/booking-now" target="_top">
+        Book Your Class
+      </a>
+<!-- OUR CLASSES PAGE -->
+<a class="btn outline" href="https://sites.google.com/view/tasteofbali/our-class" target="_top">
+        Explore Our Classes
+      </a>
+</div>
+</div>
+</section>
+
+</div>
+
+<main>
+<!-- ABOUT SECTION -->
+<section id="about">
+<div class="wrap intro">
+<div class="intro-photo">
+<img alt="Traditional Balinese spices" loading="lazy" src="https://drive.google.com/thumbnail?id=1y8l3zjTGv0ani1sGeTzhUutRxLAE5_dD&amp;sz=w800"/>
+</div>
+<div>
+<p class="eyebrow">Our Story</p>
+<h2>A Taste of Bali, Made by You</h2>
+<p class="lead">
+        Balinese cuisine is a beautiful aromatic celebration of
+        fresh herbs, roots, spices, and complex spice blends.
+        Our cooking school offers a bridge to this culinary
+        heritage. Guided by native chefs, you’ll learn the
+        traditional methods of Balinese food preparation in a
+        communal bamboo kitchen surrounded by lush tropical greenery.
+      </p>
+<p class="small-note">
+<span>♧</span>
+        Learn traditional Balinese cooking techniques
+      </p>
+</div>
+</div>
+</section>
+<!-- COOKING CLASSES -->
+<section class="cream" id="classes">
+<div class="wrap">
+<div class="section-head">
+<h2>Our Cooking Classes</h2>
+<p>Choose the perfect hands-on culinary journey in Ubud</p>
+</div>
+<div class="classes">
+<article class="class-card">
+<img alt="Balinese Cooking Class" loading="lazy" src="https://drive.google.com/thumbnail?id=1I9G1gwONafikZlIZhLMVzMk7E6KzmpUF&amp;sz=w800"/>
+<div class="card-body">
+<h3>Balinese Cooking Class</h3>
+<p>Learn traditional dishes in an energetic, sensory-rich morning of exploration and creation.</p>
+<div class="price-row">
+<span class="price">$45 / person</span>
+<span class="duration">3 Hours</span>
+</div>
+<a class="btn dark" href="https://sites.google.com/view/tasteofbali/booking-now" rel="noopener noreferrer" target="_blank">Book Now</a>
+</div>
+</article>
+<article class="class-card">
+<img alt="Cooking and Market Tour" loading="lazy" src="https://drive.google.com/thumbnail?id=1jc8Fr6gxgkGOBTYxOrxWKkeasZTXBHcV&amp;sz=w800"/>
+<div class="card-body">
+<h3>Cooking &amp; Market Tour</h3>
+<p>Visit a local spice market, select fresh ingredients, then cook together in a traditional kitchen.</p>
+<div class="price-row">
+<span class="price">$55 / person</span>
+<span class="duration">4 Hours</span>
+</div>
+<a class="btn dark" href="https://sites.google.com/view/tasteofbali/our-class/market-tour" rel="noopener noreferrer" target="_blank">Book Now</a>
+</div>
+</article>
+<article class="class-card">
+<img alt="Private Cooking Experience" loading="lazy" src="https://drive.google.com/thumbnail?id=1zP7kFdJfOXvgFguG9mMP2WVzHNZeJkSZ&amp;sz=w800"/>
+<div class="card-body">
+<h3>Private Experience</h3>
+<p>Enjoy a customized session with your own private instructor in an exclusive, intimate setting.</p>
+<div class="price-row">
+<span class="price">$120 / person</span>
+<span class="duration">3 Hours</span>
+</div>
+<a class="btn dark" href="https://sites.google.com/view/tasteofbali/booking-now" rel="noopener noreferrer" target="_blank">Book Now</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- WHAT'S INCLUDED -->
+<section id="included">
+<div class="wrap">
+<div class="section-head">
+<h2>What's Included</h2>
+<p>We take care of every detail so you can focus on cooking</p>
+</div>
+<div class="included">
+<div class="include-item">
+<div class="include-icon">✿</div>
+<div>
+<strong>Cooking Apron</strong>
+<p>Comfortable kitchen apron provided during the workshop.</p>
+</div>
+</div>
+<div class="include-item">
+<div class="include-icon">♧</div>
+<div>
+<strong>Fresh Ingredients</strong>
+<p>Fresh local ingredients and spices selected for your class.</p>
+</div>
+</div>
+<div class="include-item">
+<div class="include-icon">♙</div>
+<div>
+<strong>Experienced Chef</strong>
+<p>Learn authentic techniques from a local cooking instructor.</p>
+</div>
+</div>
+<div class="include-item">
+<div class="include-icon">❋</div>
+<div>
+<strong>Welcome Drink &amp; Snack</strong>
+<p>Enjoy refreshments and traditional Balinese snacks.</p>
+</div>
+</div>
+<div class="include-item">
+<div class="include-icon">▤</div>
+<div>
+<strong>Recipe Booklet</strong>
+<p>Step-by-step recipes to recreate the dishes at home.</p>
+</div>
+</div>
+<div class="include-item">
+<div class="include-icon">◎</div>
+<div>
+<strong>Cooking Equipment</strong>
+<p>Cooking tools and equipment provided during the class.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- UPDATED SIGNATURE DISHES -->
+<section class="dishes-section" id="dishes">
+<div class="dishes-heading">
+<h2>Our Signature Dishes</h2>
+<p>Discover the authentic flavors of traditional Balinese cuisine</p>
+</div>
+<div class="dishes-grid">
+<article class="dish-card">
+<img alt="Bebek Betutu" loading="lazy" src="https://drive.google.com/thumbnail?id=1oapm_bSS_2a5FpWjIpVBZmyX16DnGYvK&amp;sz=w1000"/>
+<div class="dish-info">
+<h3>Bebek Betutu</h3>
+<p>Slow-cooked duck infused with traditional Balinese spices, herbs, and rich aromatic flavors.</p>
+</div>
+</article>
+<article class="dish-card">
+<img alt="Jaje Bali" loading="lazy" src="https://drive.google.com/thumbnail?id=1U_E4gyHoEgzQBOx3zA9pduuLVTlImS7o&amp;sz=w1000"/>
+<div class="dish-info">
+<h3>Jaje Bali</h3>
+<p>Traditional Balinese sweets made with rice flour, sticky rice, coconut, and palm sugar.</p>
+</div>
+</article>
+<article class="dish-card">
+<img alt="Sambal Matah" loading="lazy" src="https://drive.google.com/thumbnail?id=17SGEgkfNo3-Sva3OqsWyov2JvqFoNuWt&amp;sz=w1000"/>
+<div class="dish-info">
+<h3>Sambal Matah</h3>
+<p>A fresh Balinese raw sambal combining shallots, lemongrass, chilies, lime, and aromatic coconut oil.</p>
+</div>
+</article>
+<article class="dish-card">
+<img alt="Nasi Goreng" loading="lazy" src="https://drive.google.com/thumbnail?id=1uSIqLKTwMQ1g6-ZSY-_oqdIOAMxnxeoU&amp;sz=w1000"/>
+<div class="dish-info">
+<h3>Nasi Goreng</h3>
+<p>Indonesian fried rice tossed with fragrant spices and savory seasonings for a comforting, flavorful meal.</p>
+</div>
+</article>
+<article class="dish-card">
+<img alt="Sate Lilit" loading="lazy" src="https://drive.google.com/thumbnail?id=1NVVNb6WX4G3b5R1yEb6DpADuIlIVDKTk&amp;sz=w1000"/>
+<div class="dish-info">
+<h3>Sate Lilit</h3>
+<p>Seasoned minced fish or meat blended with Balinese spices and wrapped around lemongrass or bamboo skewers.</p>
+</div>
+</article>
+<article class="dish-card">
+<img alt="Lawar" loading="lazy" src="https://drive.google.com/thumbnail?id=14hNcLF8Ct-rqP3PkGSgM0iWn1XzYO72K&amp;sz=w1000"/>
+<div class="dish-info">
+<h3>Lawar</h3>
+<p>A traditional Balinese mixture of finely chopped vegetables, grated coconut, herbs, and rich local spices.</p>
+</div>
+</article>
+</div>
+</section>
+<!-- SPECIAL OFFERS -->
+<section id="offers">
+<div class="wrap">
+<div class="section-head">
+<h2>Special Offers</h2>
+<p>Ready to discover our exclusive cooking packages?</p>
+</div>
+<div class="offers">
+<article class="offer">
+<h3>Early Bird Discount</h3>
+<p>
+          Plan ahead and enjoy a special discount on your cooking
+          experience. Reserve at least 7 days in advance.
+        </p>
+<a class="btn" href="https://sites.google.com/view/tasteofbali/special-offer/reedem-special-offers" rel="noopener noreferrer" target="_blank">Claim Offer</a>
+</article>
+<article class="offer">
+<h3>Group Package</h3>
+<p>
+          Gather your friends and family for a memorable culinary
+          journey with our special group package.
+        </p>
+<a class="btn" href="https://sites.google.com/view/tasteofbali/special-offer/reedem-special-offers" rel="noopener noreferrer" target="_blank">Claim Offer</a>
+</article>
+</div>
+</div>
+</section>
+<!-- GALLERY -->
+<section class="cream" id="gallery">
+<div class="wrap">
+<div class="section-head">
+<h2>Moments from Ubud</h2>
+<p>Take a visual stroll through our tropical cooking workshops</p>
+</div>
+<div class="gallery">
+<img alt="Guests cooking together in Ubud" loading="lazy" src="https://drive.google.com/thumbnail?id=12V4ygYt-Id-sXyDgI_wY6eUsDN4jp4oC&amp;sz=w800"/>
+<img alt="Fresh herbs and ingredients" loading="lazy" src="https://drive.google.com/thumbnail?id=1GyJw18uVDyBlJeIIHZhwkNmE3u0yJgWM&amp;sz=w800"/>
+<img alt="Cooking over an open flame" loading="lazy" src="https://drive.google.com/thumbnail?id=1SWfxjIrf3Bk4YUnbgbvOkc9ll6XSj7sd&amp;sz=w800"/>
+<img alt="Chef demonstrating Balinese cooking" loading="lazy" src="https://drive.google.com/thumbnail?id=1hLiMCM4Hoc33KKdpEK7e4Y9-x_m6ZsCj&amp;sz=w800"/>
+<img alt="Preparing fresh ingredients" loading="lazy" src="https://drive.google.com/thumbnail?id=1xoV758RSsleJHmnrsu1jeVJrjuvrJab3&amp;sz=w800"/>
+<img alt="A finished Balinese meal outdoors" loading="lazy" src="https://drive.google.com/thumbnail?id=1z9r4seAis_vcZPLfmy2EajXVYo3AErAz&amp;sz=w800"/>
+</div>
+</div>
+</section>
+<!-- REVIEWS -->
+<section id="reviews">
+<div class="wrap">
+<div class="section-head">
+<h2>What Our Guests Say</h2>
+<p>Shared stories from travelers around the globe</p>
+</div>
+<div class="reviews">
+<article class="review">
+<div class="stars">★★★★★</div>
+<p>
+          “The highlight of our Ubud trip! The cooking experience
+          was fun, welcoming, and full of delicious flavors.
+          The market tour was unforgettable.”
+        </p>
+<strong>Jessica Miller</strong>
+<small>Australia</small>
+</article>
+<article class="review">
+<div class="stars">★★★★★</div>
+<p>
+          “I learned the secrets of Balinese cooking and really
+          enjoyed discovering traditional recipes. Highly
+          recommended for food enthusiasts.”
+        </p>
+<strong>Hiro Tanaka</strong>
+<small>Japan</small>
+</article>
+<article class="review">
+<div class="stars">★★★★★</div>
+<p>
+          “A fantastic experience! The team made the class
+          memorable with warm hospitality, delicious food,
+          and authentic local flavors.”
+        </p>
+<strong>Lisa Grayson</strong>
+<small>United Kingdom</small>
+</article>
+</div>
+</div>
+</section>
+<!-- CALL TO ACTION -->
+<section class="cta" id="contact">
+<h2>Come Cook With Us</h2>
+<p>
+    Your Balinese culinary adventure awaits.
+    Reserve your spot today.
+  </p>
+<a class="btn" href="https://sites.google.com/view/tasteofbali/booking-now" rel="noopener noreferrer" target="_blank">Book Your Class</a>
+</section>
+</main>
+
+
+<footer>
+<div class="footer-wrap">
+<div class="footer-grid">
+<!-- BRAND -->
+<div>
+<div class="brand">❀ Taste of Bali</div>
+<p>
+          Join our authentic cooking experience in Ubud.
+          Discover the beauty of local cuisine and create
+          lasting memories with our Balinese chefs.
+        </p>
+</div>
+<!-- QUICK LINKS -->
+<div>
+<h4>Quick Links</h4>
+<div class="footer-links">
+<a href="https://sites.google.com/view/tasteofbali/home-page" target="_top">Home</a>
+<a href="https://sites.google.com/view/tasteofbali/about-us" target="_top">About Us</a>
+<a href="https://sites.google.com/view/tasteofbali/our-class" target="_top">Our Classes</a>
+<a href="https://sites.google.com/view/tasteofbali/special-offer" target="_top">Special Offer</a>
+</div>
+</div>
+<!-- EXPERIENCES -->
+<div>
+<h4>Experiences</h4>
+<div class="footer-links">
+<a href="https://sites.google.com/view/tasteofbali/our-class/market-tour" target="_top">Market Tour</a>
+<a href="https://sites.google.com/view/tasteofbali/our-class" target="_top">Private Class</a>
+<a href="https://sites.google.com/view/tasteofbali/our-class" target="_top">Group Cooking</a>
+<a href="https://sites.google.com/view/tasteofbali/special-offer/reedem-special-offers" target="_top">Redeem Your Special Offers</a>
+</div>
+</div>
+<!-- CONTACT -->
+<div>
+<h4>Contact Us</h4>
+<p>
+          Ubud, Bali, Indonesia<br/>
+          hello@tasteofbali.example<br/>
+          +62 812 3456 7890
+        </p>
+<div class="footer-links">
+<a href="https://sites.google.com/view/tasteofbali/contact-us" target="_top">Get in Touch</a>
+<a href="https://sites.google.com/view/tasteofbali/booking-now" target="_top">Booking Now</a>
+</div>
+</div>
+</div>
+<!-- COPYRIGHT -->
+<div class="copyright">
+<span>© 2026 Taste of Bali. All rights reserved.</span>
+<span>
+<a href="https://sites.google.com/view/tasteofbali/gallery" target="_top">Gallery</a>
+         · 
+        <a href="https://sites.google.com/view/tasteofbali/review" target="_top">Review</a>
+         · 
+        <a href="https://sites.google.com/view/tasteofbali/contact-us" target="_top">Contact Us</a>
+</span>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
