@@ -16,7 +16,7 @@
   --cream: #f7f2e8;
   --white: #ffffff;
   --coral: #c97962;
-  --coral-dark: #b0614b;
+  --coral-dark: #a95c47;
   --gold: #d8b878;
   --ink: #1a2421;
   --muted: #5a6662;
@@ -127,21 +127,59 @@ a {
   gap: 10px;
 }
 
-.nav-cta {
+/* CTA BUTTONS (CORAL + HOVER) */
+.nav-cta,
+.btn,
+.btn.dark {
+  display: inline-block;
   background: var(--coral);
-  color: #fff;
-  padding: 8px 14px;
+  border: 1px solid var(--coral);
+  color: #ffffff;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  border: none;
-  transition: background 0.2s;
+  text-align: center;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.nav-cta {
+  padding: 8px 14px;
+  font-size: 11px;
   white-space: nowrap;
 }
 
-.nav-cta:hover {
+.btn {
+  padding: 11px 18px;
+}
+
+.nav-cta:hover,
+.btn:hover,
+.btn.dark:hover {
   background: var(--coral-dark);
+  border-color: var(--coral-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(201, 121, 98, 0.28);
+}
+
+.btn.outline {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--coral);
+  color: var(--coral-dark);
+}
+
+.btn.outline:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(201, 121, 98, 0.25);
+}
+
+.btn.full {
+  display: block;
+  width: 100%;
 }
 
 .menu-toggle {
@@ -196,52 +234,7 @@ a {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ================= COMMON BUTTONS & HEADINGS ================= */
-.btn {
-  display: inline-block;
-  border: 1px solid var(--coral);
-  background: var(--coral);
-  color: #ffffff;
-  padding: 11px 18px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-  transition: 0.2s;
-}
-
-.btn:hover {
-  background: var(--coral-dark);
-  border-color: var(--coral-dark);
-  transform: translateY(-1px);
-}
-
-.btn.dark {
-  background: var(--green);
-  border-color: var(--green);
-  color: #ffffff;
-}
-
-.btn.dark:hover {
-  background: var(--green-light);
-}
-
-.btn.outline {
-  background: transparent;
-  border-color: var(--green);
-  color: var(--green);
-}
-
-.btn.outline:hover {
-  background: rgba(23, 63, 53, 0.07);
-}
-
-.btn.full {
-  display: block;
-  width: 100%;
-}
-
+/* ================= COMMON SECTIONS ================= */
 section {
   padding: 52px 0;
 }
@@ -276,7 +269,6 @@ section {
   color: var(--muted);
 }
 
-/* PAGE HEADER BANNER (FOR SUB-PAGES) */
 .subpage-header {
   background: var(--cream);
   padding: 40px 0 34px;
@@ -296,7 +288,7 @@ section {
   margin: auto;
 }
 
-/* ================= CAROUSEL SYSTEM (ANTI-LONG SCROLL) ================= */
+/* ================= UNIFORM CAROUSEL SYSTEM ================= */
 .carousel-wrapper {
   position: relative;
 }
@@ -330,18 +322,19 @@ section {
 }
 
 .carousel-btn:hover {
-  background: var(--green);
+  background: var(--coral);
   color: var(--white);
-  border-color: var(--green);
+  border-color: var(--coral);
 }
 
 .carousel-track {
   display: flex;
+  align-items: stretch;
   gap: 18px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -351,28 +344,50 @@ section {
 }
 
 .carousel-slide {
-  flex: 0 0 calc(33.333% - 12px);
+  flex: 0 0 300px;
+  width: 300px;
+  height: 390px;
   scroll-snap-align: start;
-  min-width: 260px;
+  display: flex;
+  flex-direction: column;
 }
 
-.carousel-slide.wide {
-  flex: 0 0 calc(50% - 9px);
-  min-width: 280px;
+.carousel-slide.compact-slide {
+  height: 250px;
 }
 
-/* ================= HERO SECTION ================= */
-.hero {
-  background: linear-gradient(135deg, #fbf9f4 0%, #f3ece0 100%);
-  padding: 56px 0;
+/* ================= FULL-BLEED HERO SECTION ================= */
+.hero-full {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 36px;
-  align-items: center;
+.hero-bg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(247, 242, 232, 0.95) 0%, rgba(247, 242, 232, 0.84) 52%, rgba(247, 242, 232, 0.25) 100%);
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1120px, 90%);
+  margin: 0 auto;
+  padding: 56px 0;
 }
 
 .hero-brand {
@@ -383,25 +398,19 @@ section {
   margin-bottom: 10px;
 }
 
-.hero h1 {
-  font-size: clamp(34px, 5vw, 54px);
+.hero-full h1 {
+  font-size: clamp(36px, 5vw, 56px);
   line-height: 1.08;
   margin-bottom: 16px;
+  max-width: 560px;
 }
 
 .hero-description {
   font-size: 13.5px;
   line-height: 1.75;
-  color: var(--muted);
+  color: var(--ink);
   margin-bottom: 24px;
   max-width: 480px;
-}
-
-.hero-image {
-  height: 360px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(23, 63, 53, 0.12);
 }
 
 .actions {
@@ -429,13 +438,12 @@ section {
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
   height: 100%;
 }
 
 .class-card img {
-  height: 185px;
+  height: 170px;
+  flex-shrink: 0;
 }
 
 .card-body {
@@ -453,7 +461,7 @@ section {
 .card-body p {
   font-size: 12px;
   color: var(--muted);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   flex: 1;
 }
 
@@ -475,7 +483,7 @@ section {
 /* INCLUDED ITEMS */
 .include-item {
   background: var(--white);
-  padding: 18px;
+  padding: 20px;
   display: flex;
   gap: 12px;
   align-items: flex-start;
@@ -501,7 +509,7 @@ section {
   font-size: 16px;
   color: var(--green);
   display: block;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 
 .include-item p {
@@ -519,16 +527,20 @@ section {
 }
 
 .dish-card img {
-  height: 180px;
+  height: 185px;
+  flex-shrink: 0;
 }
 
 .dish-info {
-  padding: 14px 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .dish-info h3 {
   font-size: 17px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .dish-info p {
@@ -542,17 +554,16 @@ section {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
   height: 100%;
 }
 
 .offer-card img {
-  height: 190px;
+  height: 165px;
+  flex-shrink: 0;
 }
 
 .offer-body {
-  padding: 18px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -563,11 +574,11 @@ section {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .offer-title-row h3 {
-  font-size: 19px;
+  font-size: 18px;
 }
 
 .badge {
@@ -584,11 +595,12 @@ section {
 .gallery-card {
   border-radius: var(--radius);
   overflow: hidden;
-  height: 220px;
   border: 1px solid var(--border);
+  height: 100%;
 }
 
 .gallery-card img {
+  width: 100%;
   height: 100%;
 }
 
@@ -617,7 +629,7 @@ section {
 }
 
 .review-card img.review-photo {
-  height: 160px;
+  height: 135px;
   border-radius: 4px;
   margin-top: 10px;
 }
@@ -632,11 +644,13 @@ section {
 }
 
 .chef-card img {
-  height: 220px;
+  height: 195px;
+  flex-shrink: 0;
 }
 
 .chef-info {
   padding: 16px;
+  flex: 1;
 }
 
 .chef-role {
@@ -735,9 +749,10 @@ tbody tr:nth-child(even) {
 
 .box-card {
   background: var(--white);
-  padding: 24px;
+  padding: 22px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
+  height: 100%;
 }
 
 .form-group {
@@ -771,7 +786,7 @@ tbody tr:nth-child(even) {
 
 .form-control:focus {
   outline: none;
-  border-color: var(--green);
+  border-color: var(--coral);
 }
 
 .promo-row {
@@ -828,6 +843,7 @@ tbody tr:nth-child(even) {
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .filter-btn.active,
@@ -946,15 +962,10 @@ footer p,
     display: block;
   }
 
-  .hero-grid,
   .intro-grid,
   .two-col-grid {
     grid-template-columns: 1fr;
     gap: 24px;
-  }
-
-  .hero-image {
-    height: 250px;
   }
 
   .highlights-grid {
@@ -964,10 +975,6 @@ footer p,
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .carousel-slide {
-    flex: 0 0 calc(50% - 9px);
-  }
 }
 
 @media (max-width: 600px) {
@@ -975,14 +982,22 @@ footer p,
     padding: 38px 0;
   }
 
-  .hero {
-    padding: 36px 0;
+  .hero-full {
+    min-height: 460px;
   }
 
-  .carousel-slide,
-  .carousel-slide.wide {
-    flex: 0 0 84%;
-    min-width: 250px;
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(247, 242, 232, 0.92) 0%, rgba(247, 242, 232, 0.88) 100%);
+  }
+
+  .carousel-slide {
+    flex: 0 0 280px;
+    width: 280px;
+    height: 380px;
+  }
+
+  .carousel-slide.compact-slide {
+    height: 240px;
   }
 
   .form-row,
@@ -1039,23 +1054,20 @@ footer p,
 <!-- PAGE 1: HOME                                                        -->
 <!-- =================================================================== -->
 <main id="page-home" class="page-view active">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="hero-brand">❀ Taste of Bali</div>
-        <span class="eyebrow">A Culinary Journey in Ubud</span>
-        <h1>Cook. Taste.<br>Experience Bali.</h1>
-        <p class="hero-description">
-          Discover the art of Balinese cuisine in the heart of Ubud. Learn local recipes, explore fresh ingredients, and create authentic dishes with our welcoming local chefs.
-        </p>
-        <div class="actions">
-          <a class="btn" data-page="booking">Book Your Class</a>
-          <a class="btn outline" data-page="classes">Explore Our Classes</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="https://drive.google.com/thumbnail?id=1y8l3zjTGv0ani1sGeTzhUutRxLAE5_dD&sz=w1000" alt="Traditional Balinese Spices">
+  <!-- FULL-BLEED HERO -->
+  <section class="hero-full">
+    <img class="hero-bg-photo" src="https://drive.google.com/thumbnail?id=1y8l3zjTGv0ani1sGeTzhUutRxLAE5_dD&sz=w1600" alt="Traditional Balinese Spices & Kitchen">
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <div class="hero-brand">❀ Taste of Bali</div>
+      <span class="eyebrow">A Culinary Journey in Ubud</span>
+      <h1>Cook. Taste.<br>Experience Bali.</h1>
+      <p class="hero-description">
+        Discover the art of Balinese cuisine in the heart of Ubud. Learn local recipes, explore fresh ingredients, and create authentic dishes with our welcoming local chefs.
+      </p>
+      <div class="actions">
+        <a class="btn" data-page="booking">Book Your Class</a>
+        <a class="btn outline" data-page="classes">Explore Our Classes</a>
       </div>
     </div>
   </section>
@@ -1069,7 +1081,7 @@ footer p,
       <div>
         <span class="eyebrow">Our Story</span>
         <h2>A Taste of Bali, Made by You</h2>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
+        <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">
           Guided by native chefs, you’ll learn the traditional methods of Balinese food preparation in a communal bamboo kitchen surrounded by lush tropical greenery.
         </p>
         <a class="btn outline" data-page="about">Read Full Story</a>
@@ -1101,7 +1113,7 @@ footer p,
                 <span class="price">$45 / person</span>
                 <span>3 Hours</span>
               </div>
-              <a class="btn dark full" data-page="booking" data-select-exp="standard">Book Now</a>
+              <a class="btn full" data-page="booking" data-select-exp="standard">Book Now</a>
             </div>
           </article>
 
@@ -1114,7 +1126,7 @@ footer p,
                 <span class="price">$65 / person</span>
                 <span>5.5 Hours</span>
               </div>
-              <a class="btn dark full" data-page="market">Explore Tour</a>
+              <a class="btn full" data-page="market">Explore Tour</a>
             </div>
           </article>
 
@@ -1127,7 +1139,7 @@ footer p,
                 <span class="price">$120 / person</span>
                 <span>5 Hours</span>
               </div>
-              <a class="btn dark full" data-page="booking" data-select-exp="private">Book Now</a>
+              <a class="btn full" data-page="booking" data-select-exp="private">Book Now</a>
             </div>
           </article>
         </div>
@@ -1135,7 +1147,7 @@ footer p,
     </div>
   </section>
 
-  <!-- WHAT'S INCLUDED (CAROUSEL) -->
+  <!-- WHAT'S INCLUDED (UNIFORM CAROUSEL) -->
   <section>
     <div class="container">
       <div class="section-head">
@@ -1150,27 +1162,27 @@ footer p,
           <button class="carousel-btn" onclick="scrollCarousel('homeIncludedTrack', 1)">›</button>
         </div>
         <div class="carousel-track" id="homeIncludedTrack">
-          <div class="carousel-slide include-item">
+          <div class="carousel-slide compact-slide include-item">
             <div class="include-icon">✿</div>
             <div><strong>Cooking Apron</strong><p>Comfortable kitchen apron provided during the workshop.</p></div>
           </div>
-          <div class="carousel-slide include-item">
+          <div class="carousel-slide compact-slide include-item">
             <div class="include-icon">♧</div>
             <div><strong>Fresh Ingredients</strong><p>Fresh local ingredients and spices selected for your class.</p></div>
           </div>
-          <div class="carousel-slide include-item">
+          <div class="carousel-slide compact-slide include-item">
             <div class="include-icon">♙</div>
             <div><strong>Experienced Chef</strong><p>Learn authentic techniques from a local cooking instructor.</p></div>
           </div>
-          <div class="carousel-slide include-item">
+          <div class="carousel-slide compact-slide include-item">
             <div class="include-icon">❋</div>
             <div><strong>Welcome Drink &amp; Snack</strong><p>Enjoy refreshments and traditional Balinese snacks.</p></div>
           </div>
-          <div class="carousel-slide include-item">
+          <div class="carousel-slide compact-slide include-item">
             <div class="include-icon">▤</div>
             <div><strong>Recipe Booklet</strong><p>Step-by-step recipes to recreate the dishes at home.</p></div>
           </div>
-          <div class="carousel-slide include-item">
+          <div class="carousel-slide compact-slide include-item">
             <div class="include-icon">◎</div>
             <div><strong>Cooking Equipment</strong><p>Cooking tools and equipment provided during the class.</p></div>
           </div>
@@ -1179,7 +1191,7 @@ footer p,
     </div>
   </section>
 
-  <!-- SIGNATURE DISHES (CAROUSEL) -->
+  <!-- SIGNATURE DISHES (UNIFORM CAROUSEL) -->
   <section class="bg-cream">
     <div class="container">
       <div class="section-head">
@@ -1208,7 +1220,7 @@ footer p,
           </article>
           <article class="carousel-slide dish-card">
             <img src="https://drive.google.com/thumbnail?id=1uSIqLKTwMQ1g6-ZSY-_oqdIOAMxnxeoU&sz=w800" alt="Nasi Goreng" loading="lazy">
-            <div class="dish-info"><h3>Nasi Goreng</h3><p>Indonesian fried rice tossed with fragrant spices and savory seasonings.</p></div>
+            <div class="dish-info"><h3>Nasi Goreng</h3><p>Indonesian fried rice tossed with fragrant spices and savory seasonings for a flavorful meal.</p></div>
           </article>
           <article class="carousel-slide dish-card">
             <img src="https://drive.google.com/thumbnail?id=1NVVNb6WX4G3b5R1yEb6DpADuIlIVDKTk&sz=w800" alt="Sate Lilit" loading="lazy">
@@ -1223,7 +1235,7 @@ footer p,
     </div>
   </section>
 
-  <!-- SPECIAL OFFERS PREVIEW -->
+  <!-- SPECIAL OFFERS PREVIEW (UNIFORM CAROUSEL) -->
   <section>
     <div class="container">
       <div class="section-head">
@@ -1237,27 +1249,33 @@ footer p,
           <button class="carousel-btn" onclick="scrollCarousel('homeOffersTrack', 1)">›</button>
         </div>
         <div class="carousel-track" id="homeOffersTrack">
-          <article class="carousel-slide wide box-card">
-            <div class="offer-title-row"><h3>Early Bird Discount</h3><span class="badge">15% OFF</span></div>
-            <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Reserve at least 7 days in advance to enjoy an instant 15% discount on your cooking experience.</p>
-            <a class="btn" data-page="redeem" data-offer="early">Claim Offer</a>
+          <article class="carousel-slide compact-slide box-card" style="display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div class="offer-title-row"><h3>Early Bird Discount</h3><span class="badge">15% OFF</span></div>
+              <p style="font-size:12px; color:var(--muted);">Reserve at least 7 days in advance to enjoy an instant 15% discount on your cooking experience.</p>
+            </div>
+            <a class="btn full" data-page="redeem" data-offer="early">Claim Offer</a>
           </article>
-          <article class="carousel-slide wide box-card">
-            <div class="offer-title-row"><h3>Group Package</h3><span class="badge">20% OFF</span></div>
-            <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Gather 4 or more friends and family for a memorable culinary journey with 20% off.</p>
-            <a class="btn" data-page="redeem" data-offer="group">Claim Offer</a>
+          <article class="carousel-slide compact-slide box-card" style="display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div class="offer-title-row"><h3>Group Package</h3><span class="badge">20% OFF</span></div>
+              <p style="font-size:12px; color:var(--muted);">Gather 4 or more friends and family for a memorable culinary journey with 20% off.</p>
+            </div>
+            <a class="btn full" data-page="redeem" data-offer="group">Claim Offer</a>
           </article>
-          <article class="carousel-slide wide box-card">
-            <div class="offer-title-row"><h3>Honeymoon Package</h3><span class="badge">$180 / COUPLE</span></div>
-            <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Romantic couples cooking class with private chef and candlelight setup.</p>
-            <a class="btn" data-page="redeem" data-offer="honeymoon">Claim Offer</a>
+          <article class="carousel-slide compact-slide box-card" style="display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div class="offer-title-row"><h3>Honeymoon Package</h3><span class="badge">$180 / COUPLE</span></div>
+              <p style="font-size:12px; color:var(--muted);">Romantic couples cooking class with private chef and candlelight setup.</p>
+            </div>
+            <a class="btn full" data-page="redeem" data-offer="honeymoon">Claim Offer</a>
           </article>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MOMENTS GALLERY & GUEST REVIEWS (CAROUSELS) -->
+  <!-- MOMENTS GALLERY & GUEST REVIEWS (UNIFORM CAROUSELS) -->
   <section class="bg-cream">
     <div class="container">
       <div class="section-head">
@@ -1272,12 +1290,12 @@ footer p,
           <button class="carousel-btn" onclick="scrollCarousel('homeGalleryTrack', 1)">›</button>
         </div>
         <div class="carousel-track" id="homeGalleryTrack">
-          <div class="carousel-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=12V4ygYt-Id-sXyDgI_wY6eUsDN4jp4oC&sz=w800" alt="Cooking together" loading="lazy"></div>
-          <div class="carousel-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=1GyJw18uVDyBlJeIIHZhwkNmE3u0yJgWM&sz=w800" alt="Fresh herbs" loading="lazy"></div>
-          <div class="carousel-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=1SWfxjIrf3Bk4YUnbgbvOkc9ll6XSj7sd&sz=w800" alt="Open flame cooking" loading="lazy"></div>
-          <div class="carousel-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=1hLiMCM4Hoc33KKdpEK7e4Y9-x_m6ZsCj&sz=w800" alt="Chef demonstrating" loading="lazy"></div>
-          <div class="carousel-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=1xoV758RSsleJHmnrsu1jeVJrjuvrJab3&sz=w800" alt="Preparing ingredients" loading="lazy"></div>
-          <div class="carousel-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=1z9r4seAis_vcZPLfmy2EajXVYo3AErAz&sz=w800" alt="Finished Balinese meal" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=12V4ygYt-Id-sXyDgI_wY6eUsDN4jp4oC&sz=w800" alt="Cooking together" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=1GyJw18uVDyBlJeIIHZhwkNmE3u0yJgWM&sz=w800" alt="Fresh herbs" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=1SWfxjIrf3Bk4YUnbgbvOkc9ll6XSj7sd&sz=w800" alt="Open flame cooking" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=1hLiMCM4Hoc33KKdpEK7e4Y9-x_m6ZsCj&sz=w800" alt="Chef demonstrating" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=1xoV758RSsleJHmnrsu1jeVJrjuvrJab3&sz=w800" alt="Preparing ingredients" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card"><img src="https://drive.google.com/thumbnail?id=1z9r4seAis_vcZPLfmy2EajXVYo3AErAz&sz=w800" alt="Finished Balinese meal" loading="lazy"></div>
         </div>
       </div>
 
@@ -1293,21 +1311,21 @@ footer p,
           <button class="carousel-btn" onclick="scrollCarousel('homeReviewsTrack', 1)">›</button>
         </div>
         <div class="carousel-track" id="homeReviewsTrack">
-          <article class="carousel-slide review-card">
+          <article class="carousel-slide compact-slide review-card">
             <div>
               <div class="stars">★★★★★</div>
               <p>“The highlight of our Ubud trip! The cooking experience was fun, welcoming, and full of delicious flavors. The market tour was unforgettable.”</p>
             </div>
             <div><strong>Jessica Miller</strong><br><small style="color:var(--muted);">Australia</small></div>
           </article>
-          <article class="carousel-slide review-card">
+          <article class="carousel-slide compact-slide review-card">
             <div>
               <div class="stars">★★★★★</div>
               <p>“I learned the secrets of Balinese cooking and really enjoyed discovering traditional recipes. Highly recommended for food enthusiasts.”</p>
             </div>
             <div><strong>Hiro Tanaka</strong><br><small style="color:var(--muted);">Japan</small></div>
           </article>
-          <article class="carousel-slide review-card">
+          <article class="carousel-slide compact-slide review-card">
             <div>
               <div class="stars">★★★★★</div>
               <p>“A fantastic experience! The team made the class memorable with warm hospitality, delicious food, and authentic local flavors.”</p>
@@ -1429,6 +1447,14 @@ footer p,
       </div>
     </div>
   </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Experience Our Kitchen in Person</h2>
+      <p>Join our chefs in Ubud for an authentic hands-on culinary workshop.</p>
+      <a class="btn" data-page="booking">Book Your Class</a>
+    </div>
+  </section>
 </main>
 
 <!-- =================================================================== -->
@@ -1458,11 +1484,6 @@ footer p,
               <h3>Balinese Cooking Class</h3>
               <div class="price-row"><span class="price">$45 / person</span><span>• 4 Hours</span></div>
               <p>Prepare five traditional delicacies using our proprietary ginger spice paste under close chef guidance.</p>
-              <ul style="font-size:11px; color:var(--muted); padding-left:16px; margin-bottom:14px;">
-                <li>Welcome drink &amp; lemongrass tea</li>
-                <li>Printed family recipe booklet</li>
-                <li>Complimentary Ubud hotel transfer</li>
-              </ul>
               <a class="btn full" data-page="booking" data-select-exp="standard">Book This Class</a>
             </div>
           </article>
@@ -1473,12 +1494,7 @@ footer p,
               <h3>Cooking &amp; Market Tour</h3>
               <div class="price-row"><span class="price">$65 / person</span><span>• 6 Hours</span></div>
               <p>Start at an authentic Ubud morning market to handpick herbs and spices before cooking seven exquisite dishes.</p>
-              <ul style="font-size:11px; color:var(--muted); padding-left:16px; margin-bottom:14px;">
-                <li>Guided market tour with fruit tastings</li>
-                <li>Cook 7 traditional dishes</li>
-                <li>Complimentary Ubud hotel transfer</li>
-              </ul>
-              <a class="btn dark full" data-page="market">Explore Market Tour</a>
+              <a class="btn full" data-page="market">Explore Market Tour</a>
             </div>
           </article>
 
@@ -1488,11 +1504,6 @@ footer p,
               <h3>Private Cooking Experience</h3>
               <div class="price-row"><span class="price">$120 / person</span><span>• 5 Hours</span></div>
               <p>Collaborate directly with Chef Wayan to customize a gourmet five-course menu in our private bamboo terrace.</p>
-              <ul style="font-size:11px; color:var(--muted); padding-left:16px; margin-bottom:14px;">
-                <li>Fully customized private menu</li>
-                <li>Dedicated host, server &amp; master chef</li>
-                <li>Luxury private car transfer</li>
-              </ul>
               <a class="btn full" data-page="booking" data-select-exp="private">Book This Class</a>
             </div>
           </article>
@@ -1530,6 +1541,17 @@ footer p,
       </div>
     </div>
   </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to Cook Like a Local?</h2>
+      <p>Reserve your spot today and save with our special offers.</p>
+      <div class="actions" style="justify-content:center;">
+        <a class="btn" data-page="booking">Book Your Experience</a>
+        <a class="btn outline" data-page="offers">View Special Offers</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- =================================================================== -->
@@ -1553,7 +1575,6 @@ footer p,
     </div>
   </section>
 
-  <!-- STEPS CAROUSEL -->
   <section>
     <div class="container">
       <div class="section-head">
@@ -1567,17 +1588,17 @@ footer p,
           <button class="carousel-btn" onclick="scrollCarousel('marketStepsTrack', 1)">›</button>
         </div>
         <div class="carousel-track" id="marketStepsTrack">
-          <div class="carousel-slide box-card">
+          <div class="carousel-slide compact-slide box-card">
             <div style="font-family:'Playfair Display',serif; color:var(--coral); font-size:28px; font-weight:700;">01</div>
             <h3>Explore the Local Market</h3>
             <p style="font-size:12px; color:var(--muted); margin-top:6px;">Walk through bustling traditional markets and handpick fresh tropical fruits, organic spices, and fragrant herbs.</p>
           </div>
-          <div class="carousel-slide box-card">
+          <div class="carousel-slide compact-slide box-card">
             <div style="font-family:'Playfair Display',serif; color:var(--coral); font-size:28px; font-weight:700;">02</div>
             <h3>Chop, Prepare &amp; Cook</h3>
             <p style="font-size:12px; color:var(--muted); margin-top:6px;">Uncover secret family recipes in our open-air bamboo kitchen under expert guidance of local chefs.</p>
           </div>
-          <div class="carousel-slide box-card">
+          <div class="carousel-slide compact-slide box-card">
             <div style="font-family:'Playfair Display',serif; color:var(--coral); font-size:28px; font-weight:700;">03</div>
             <h3>Gather Around the Table</h3>
             <p style="font-size:12px; color:var(--muted); margin-top:6px;">Sit down with fellow food lovers to enjoy a hearty shared feast featuring all 7 dishes you prepared.</p>
@@ -1587,7 +1608,6 @@ footer p,
     </div>
   </section>
 
-  <!-- INGREDIENTS CAROUSEL -->
   <section class="bg-cream">
     <div class="container">
       <div class="section-head">
@@ -1651,47 +1671,55 @@ footer p,
           <button class="carousel-btn" onclick="scrollCarousel('allOffersTrack', 1)">›</button>
         </div>
         <div class="carousel-track" id="allOffersTrack">
-          <article class="carousel-slide wide offer-card">
+          <article class="carousel-slide offer-card">
             <img src="https://drive.google.com/thumbnail?id=10C514M62iuTH-2OQNFccOg1OorSBOWmK&sz=w1000" alt="Early Bird" loading="lazy">
             <div class="offer-body">
               <div class="offer-title-row"><h3>Early Bird Discount</h3><span class="badge">15% OFF</span></div>
-              <p style="font-size:12px; color:var(--muted); margin-bottom:10px; flex:1;">Reserve at least 7 days ahead to unlock an instant 15% rate reduction on standard or market classes.</p>
-              <p style="font-size:11px; margin-bottom:12px;"><strong>Code:</strong> EARLYBIRD15 • 7+ days in advance</p>
-              <a class="btn dark full" data-page="redeem" data-offer="early">Redeem Early Bird</a>
+              <p style="font-size:12px; color:var(--muted); margin-bottom:8px; flex:1;">Reserve at least 7 days ahead to unlock 15% off standard or market classes.</p>
+              <p style="font-size:11px; margin-bottom:10px;"><strong>Code:</strong> EARLYBIRD15</p>
+              <a class="btn full" data-page="redeem" data-offer="early">Redeem Early Bird</a>
             </div>
           </article>
 
-          <article class="carousel-slide wide offer-card">
+          <article class="carousel-slide offer-card">
             <img src="https://drive.google.com/thumbnail?id=1H8_NP3quKR5xr1kSH-KR_SBGRr_4qGOa&sz=w1000" alt="Group Discount" loading="lazy">
             <div class="offer-body">
               <div class="offer-title-row"><h3>Group Discount</h3><span class="badge">20% OFF</span></div>
-              <p style="font-size:12px; color:var(--muted); margin-bottom:10px; flex:1;">Parties of 4 or more receive 20% off our signature hands-on market-tour package.</p>
-              <p style="font-size:11px; margin-bottom:12px;"><strong>Code:</strong> GROUP20 • Groups of 4+ guests</p>
-              <a class="btn dark full" data-page="redeem" data-offer="group">Redeem Group Offer</a>
+              <p style="font-size:12px; color:var(--muted); margin-bottom:8px; flex:1;">Parties of 4 or more receive 20% off our signature market-tour package.</p>
+              <p style="font-size:11px; margin-bottom:10px;"><strong>Code:</strong> GROUP20</p>
+              <a class="btn full" data-page="redeem" data-offer="group">Redeem Group Offer</a>
             </div>
           </article>
 
-          <article class="carousel-slide wide offer-card">
+          <article class="carousel-slide offer-card">
             <img src="https://drive.google.com/thumbnail?id=1OX4e8rCIGzuFgWovvWwvtpM1P1CRo42Z&sz=w1000" alt="Honeymoon" loading="lazy">
             <div class="offer-body">
               <div class="offer-title-row"><h3>Honeymoon Package</h3><span class="badge">SPECIAL RATE</span></div>
-              <p style="font-size:12px; color:var(--muted); margin-bottom:10px; flex:1;">Romantic couples cooking class with private chef and candlelight dining setup.</p>
-              <p style="font-size:11px; margin-bottom:12px;"><strong>Code:</strong> HONEYMOON • $180 for 2 guests</p>
-              <a class="btn dark full" data-page="redeem" data-offer="honeymoon">Redeem Honeymoon</a>
+              <p style="font-size:12px; color:var(--muted); margin-bottom:8px; flex:1;">Romantic couples cooking class with private chef and candlelight setup.</p>
+              <p style="font-size:11px; margin-bottom:10px;"><strong>Code:</strong> HONEYMOON ($180)</p>
+              <a class="btn full" data-page="redeem" data-offer="honeymoon">Redeem Honeymoon</a>
             </div>
           </article>
 
-          <article class="carousel-slide wide offer-card">
+          <article class="carousel-slide offer-card">
             <img src="https://drive.google.com/thumbnail?id=1ie9c7LyZgv6dnnNNSo03VtqJ_4t7dpbk&sz=w1000" alt="Rainy Season" loading="lazy">
             <div class="offer-body">
               <div class="offer-title-row"><h3>Rainy Season Special</h3><span class="badge">25% OFF</span></div>
-              <p style="font-size:12px; color:var(--muted); margin-bottom:10px; flex:1;">Cozy open-air tropical cooking workshops from November to March to save 25%.</p>
-              <p style="font-size:11px; margin-bottom:12px;"><strong>Code:</strong> RAINY25 • Nov 1 – Mar 31</p>
-              <a class="btn dark full" data-page="redeem" data-offer="rainy">Redeem Rainy Special</a>
+              <p style="font-size:12px; color:var(--muted); margin-bottom:8px; flex:1;">Cozy open-air tropical cooking workshops from Nov to Mar to save 25%.</p>
+              <p style="font-size:11px; margin-bottom:10px;"><strong>Code:</strong> RAINY25</p>
+              <a class="btn full" data-page="redeem" data-offer="rainy">Redeem Rainy Special</a>
             </div>
           </article>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" style="background:var(--white);">
+    <div class="container">
+      <h2>Have a Promo Code Ready?</h2>
+      <p>Calculate your exact savings and transfer directly to your reservation.</p>
+      <a class="btn" data-page="redeem">Go to Promo Calculator</a>
     </div>
   </section>
 </main>
@@ -1754,7 +1782,7 @@ footer p,
           <label for="redeemPromo">Promo Code</label>
           <div class="promo-row">
             <input type="text" id="redeemPromo" class="form-control" value="EARLYBIRD15">
-            <button type="button" id="applyRedeemBtn" class="btn dark">Apply</button>
+            <button type="button" id="applyRedeemBtn" class="btn">Apply</button>
           </div>
         </div>
 
@@ -1766,7 +1794,7 @@ footer p,
       <div class="box-card" style="background:var(--cream);">
         <h2 style="font-size:22px; margin-bottom:16px;">Your Special Rate</h2>
         <div class="summary-row"><span>Experience</span><span id="rSumExp">Cooking Class &amp; Market Tour</span></div>
-        <div class="summary-row"><span>Offer</span><span id="rSumOffer">Early Bird Discount</span></div>
+        <div class="summary-row"><span>Offer</span><span id="rSumOffer">Early Bird (15%)</span></div>
         <div class="summary-row"><span>Subtotal</span><span id="rSumSub">$130.00</span></div>
         <div class="summary-row"><span>Discount</span><span id="rSumDisc" style="color:var(--coral);">-$0.00</span></div>
         <div class="total-row"><span>Estimated Total</span><span id="rSumTotal">$130.00</span></div>
@@ -1806,18 +1834,26 @@ footer p,
           <button class="carousel-btn" onclick="scrollCarousel('fullGalleryTrack', 1)">›</button>
         </div>
         <div class="carousel-track" id="fullGalleryTrack">
-          <div class="carousel-slide gallery-card" data-category="cooking"><img src="https://drive.google.com/thumbnail?id=1-PJx56L-nVSYVQGaGQPj4hrmLYlGjlCr&sz=w1000" alt="Cooking Class" loading="lazy"></div>
-          <div class="carousel-slide gallery-card" data-category="market"><img src="https://drive.google.com/thumbnail?id=14BFLVPe2Xk-kJ3YZqxfKDy2vC7U-g2tO&sz=w1000" alt="Market Tour" loading="lazy"></div>
-          <div class="carousel-slide gallery-card" data-category="kitchen"><img src="https://drive.google.com/thumbnail?id=1JLc9cCfGaw2AF-B55gT659oQpS1MHdMu&sz=w1000" alt="Kitchen Ubud" loading="lazy"></div>
-          <div class="carousel-slide gallery-card" data-category="food"><img src="https://drive.google.com/thumbnail?id=1MUKzvcbbm7obax5j5RckwWgf8vRS91sH&sz=w1000" alt="Balinese Dish" loading="lazy"></div>
-          <div class="carousel-slide gallery-card" data-category="guests"><img src="https://drive.google.com/thumbnail?id=1PQqFmTpUX_h2IA1k-UiFLlufFkAFQssY&sz=w1000" alt="Guests Cooking" loading="lazy"></div>
-          <div class="carousel-slide gallery-card" data-category="kitchen"><img src="https://drive.google.com/thumbnail?id=1Uxo-omUUSYxdwU41Cv8ad1CRgnXaOt4t&sz=w1000" alt="Chef Preparing Spices" loading="lazy"></div>
-          <div class="carousel-slide gallery-card" data-category="food"><img src="https://drive.google.com/thumbnail?id=1ZNdVURFm89RXqVlfd-Hn5YRxNYv-gf8J&sz=w1000" alt="Traditional Dish" loading="lazy"></div>
-          <div class="carousel-slide gallery-card" data-category="kitchen"><img src="https://drive.google.com/thumbnail?id=1iWzkxqfwKwtDXhIeLYecSac5JTURqv_y&sz=w1000" alt="Candlelight Dinner" loading="lazy"></div>
-          <div class="carousel-slide gallery-card" data-category="food"><img src="https://drive.google.com/thumbnail?id=1pRv4utjx7KHBaoejCFbQ5heiY7OturXB&sz=w1000" alt="Fresh Ingredients" loading="lazy"></div>
-          <div class="carousel-slide gallery-card" data-category="guests"><img src="https://drive.google.com/thumbnail?id=1wlQWAygvIMq9L_GAE0tGwsUPoOlzeJEw&sz=w1000" alt="Group Fun" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card" data-category="cooking"><img src="https://drive.google.com/thumbnail?id=1-PJx56L-nVSYVQGaGQPj4hrmLYlGjlCr&sz=w1000" alt="Cooking Class" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card" data-category="market"><img src="https://drive.google.com/thumbnail?id=14BFLVPe2Xk-kJ3YZqxfKDy2vC7U-g2tO&sz=w1000" alt="Market Tour" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card" data-category="kitchen"><img src="https://drive.google.com/thumbnail?id=1JLc9cCfGaw2AF-B55gT659oQpS1MHdMu&sz=w1000" alt="Kitchen Ubud" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card" data-category="food"><img src="https://drive.google.com/thumbnail?id=1MUKzvcbbm7obax5j5RckwWgf8vRS91sH&sz=w1000" alt="Balinese Dish" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card" data-category="guests"><img src="https://drive.google.com/thumbnail?id=1PQqFmTpUX_h2IA1k-UiFLlufFkAFQssY&sz=w1000" alt="Guests Cooking" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card" data-category="kitchen"><img src="https://drive.google.com/thumbnail?id=1Uxo-omUUSYxdwU41Cv8ad1CRgnXaOt4t&sz=w1000" alt="Chef Preparing Spices" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card" data-category="food"><img src="https://drive.google.com/thumbnail?id=1ZNdVURFm89RXqVlfd-Hn5YRxNYv-gf8J&sz=w1000" alt="Traditional Dish" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card" data-category="kitchen"><img src="https://drive.google.com/thumbnail?id=1iWzkxqfwKwtDXhIeLYecSac5JTURqv_y&sz=w1000" alt="Candlelight Dinner" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card" data-category="food"><img src="https://drive.google.com/thumbnail?id=1pRv4utjx7KHBaoejCFbQ5heiY7OturXB&sz=w1000" alt="Fresh Ingredients" loading="lazy"></div>
+          <div class="carousel-slide compact-slide gallery-card" data-category="guests"><img src="https://drive.google.com/thumbnail?id=1wlQWAygvIMq9L_GAE0tGwsUPoOlzeJEw&sz=w1000" alt="Group Fun" loading="lazy"></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" style="background:var(--white);">
+    <div class="container">
+      <h2>Create Your Own Ubud Memories</h2>
+      <p>Join our next morning workshop and bring home authentic Balinese recipes.</p>
+      <a class="btn" data-page="booking">Book Your Class</a>
     </div>
   </section>
 </main>
@@ -1850,47 +1886,55 @@ footer p,
           <button class="carousel-btn" onclick="scrollCarousel('fullReviewsTrack', 1)">›</button>
         </div>
         <div class="carousel-track" id="fullReviewsTrack">
-          <article class="carousel-slide wide review-card" data-rclass="market">
+          <article class="carousel-slide review-card" data-rclass="market">
             <div>
               <div class="stars">★★★★★</div>
               <span class="badge" style="margin-bottom:8px; display:inline-block;">Cooking &amp; Market Tour</span>
-              <p>"The absolute highlight of our Ubud trip! Walking through the morning spice market with Chef Made was eye-opening. We prepared 7 gorgeous dishes!"</p>
+              <p>"The absolute highlight of our Ubud trip! Walking through the morning spice market with Chef Made was eye-opening."</p>
               <strong>Jessica Miller</strong> <small style="color:var(--muted);">• 🇦🇺 Australia</small>
             </div>
             <img class="review-photo" src="https://drive.google.com/thumbnail?id=14v1t7TSd6yJRvSGEz2E0se3Xsv8cFBHg&sz=w800" alt="Jessica Miller" loading="lazy">
           </article>
 
-          <article class="carousel-slide wide review-card" data-rclass="private">
+          <article class="carousel-slide review-card" data-rclass="private">
             <div>
               <div class="stars">★★★★★</div>
               <span class="badge" style="margin-bottom:8px; display:inline-block;">Private Experience</span>
-              <p>"Exceptional culinary masterclass. The level of deep cultural knowledge and genuine hospitality shared by Chef Wayan was truly inspiring."</p>
+              <p>"Exceptional culinary masterclass. The level of deep cultural knowledge and genuine hospitality shared by Chef Wayan was inspiring."</p>
               <strong>Hiro Tanaka</strong> <small style="color:var(--muted);">• 🇯🇵 Japan</small>
             </div>
             <img class="review-photo" src="https://drive.google.com/thumbnail?id=1Z34cXmospuoVTbwN_8hLgbgKzMm3yHJr&sz=w800" alt="Hiro Tanaka" loading="lazy">
           </article>
 
-          <article class="carousel-slide wide review-card" data-rclass="cooking">
+          <article class="carousel-slide review-card" data-rclass="cooking">
             <div>
               <div class="stars">★★★★★</div>
               <span class="badge" style="margin-bottom:8px; display:inline-block;">Balinese Cooking Class</span>
-              <p>"Such a peaceful bamboo kitchen surrounded by Ubud's rainforest! Even as a complete beginner, I cooked a perfect Nasi Goreng!"</p>
+              <p>"Such a peaceful bamboo kitchen surrounded by Ubud's rainforest! Even as a complete beginner, I cooked a great meal."</p>
               <strong>Sarah Jenkins</strong> <small style="color:var(--muted);">• 🇺🇸 United States</small>
             </div>
             <img class="review-photo" src="https://drive.google.com/thumbnail?id=1a8M3vHd2MIbk8QOQWa_Ogb5QZDNJqf9y&sz=w800" alt="Sarah Jenkins" loading="lazy">
           </article>
 
-          <article class="carousel-slide wide review-card" data-rclass="market">
+          <article class="carousel-slide review-card" data-rclass="market">
             <div>
               <div class="stars">★★★★★</div>
               <span class="badge" style="margin-bottom:8px; display:inline-block;">Cooking &amp; Market Tour</span>
-              <p>"Incredibly fun and sensory-rich day. From tasting native tropical fruits to grinding herbs on the stone pestle. Highly recommend!"</p>
+              <p>"Incredibly fun and sensory-rich day. From tasting native tropical fruits to grinding herbs on the stone pestle."</p>
               <strong>James Smith</strong> <small style="color:var(--muted);">• 🇬🇧 United Kingdom</small>
             </div>
             <img class="review-photo" src="https://drive.google.com/thumbnail?id=1e-q-6rPEDQ4f05OyJDOcOYazVxaSbRiH&sz=w800" alt="James Smith" loading="lazy">
           </article>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" style="background:var(--white);">
+    <div class="container">
+      <h2>Loved Reading Their Stories?</h2>
+      <p>Book your seat today and experience our Ubud hospitality firsthand.</p>
+      <a class="btn" data-page="booking">Book Your Experience</a>
     </div>
   </section>
 </main>
@@ -2031,7 +2075,7 @@ footer p,
           <label for="bookPromo">Promo Code (Optional)</label>
           <div class="promo-row">
             <input type="text" id="bookPromo" class="form-control" placeholder="e.g. EARLYBIRD15, GROUP20">
-            <button type="button" id="bookApplyPromo" class="btn dark">Apply</button>
+            <button type="button" id="bookApplyPromo" class="btn">Apply</button>
           </div>
           <small id="bookPromoMsg" style="display:block; margin-top:6px; font-size:11px; color:var(--muted);"></small>
         </div>
@@ -2040,7 +2084,7 @@ footer p,
       <div class="box-card">
         <h2 style="font-size:22px; margin-bottom:14px;">Booking Summary</h2>
         <div class="summary-row"><span>Experience</span><span id="bSumExp">Cooking &amp; Market Tour</span></div>
-        <div class="summary-row"><span>Date &amp; Slot</span><span id="bSumDate">Morning (8:00 AM)</span></div>
+        <div class="summary-row"><span>Date &amp; Slot</span><span id="bSumDate">Flexible Date • Morning Session (8:00 AM)</span></div>
         <div class="summary-row"><span>Guests</span><span id="bSumGuests">2 Guests</span></div>
         <div class="summary-row"><span>Subtotal</span><span id="bSumSub">$130.00</span></div>
         <div class="summary-row"><span>Promo Discount</span><span id="bSumDisc" style="color:var(--coral);">-$0.00</span></div>
@@ -2114,7 +2158,7 @@ footer p,
 function scrollCarousel(trackId, direction) {
   const track = document.getElementById(trackId);
   if (!track) return;
-  const scrollAmount = track.clientWidth * 0.8;
+  const scrollAmount = track.clientWidth * 0.85;
   track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
 
@@ -2137,14 +2181,11 @@ function scrollCarousel(trackId, direction) {
     mobileDrawer.classList.remove('open');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Pre-fill Experience on Booking Page if CTA carries data-select-exp
     if (triggerEl && triggerEl.dataset.selectExp && pageName === 'booking') {
-      const bookExp = document.getElementById('bookExp');
-      bookExp.value = triggerEl.dataset.selectExp;
+      document.getElementById('bookExp').value = triggerEl.dataset.selectExp;
       updateBookingCalculator();
     }
 
-    // Pre-fill Offer on Redeem Page if CTA carries data-offer
     if (triggerEl && triggerEl.dataset.offer && pageName === 'redeem') {
       const offerMap = { early: 'EARLYBIRD15', group: 'GROUP20', honeymoon: 'HONEYMOON', rainy: 'RAINY25' };
       document.getElementById('redeemOffer').value = triggerEl.dataset.offer;
@@ -2218,11 +2259,7 @@ function scrollCarousel(trackId, direction) {
     let discount = 0;
 
     if (autoApply && promoCodes[code]) {
-      if (code === 'HONEYMOON') {
-        discount = Math.max(0, subtotal - 180);
-      } else {
-        discount = subtotal * promoCodes[code];
-      }
+      discount = code === 'HONEYMOON' ? Math.max(0, subtotal - 180) : subtotal * promoCodes[code];
       document.getElementById('redeemNotice').textContent = `✓ Promo code ${code} applied!`;
     } else if (autoApply) {
       document.getElementById('redeemNotice').textContent = '! Invalid promo code. Try EARLYBIRD15, GROUP20, HONEYMOON, or RAINY25.';
@@ -2293,7 +2330,6 @@ function scrollCarousel(trackId, direction) {
   });
   document.getElementById('bookApplyPromo').addEventListener('click', updateBookingCalculator);
 
-  // Initialize default calculations
   updateRedeemCalculator(false);
   updateBookingCalculator();
 })();
